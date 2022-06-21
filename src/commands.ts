@@ -7,7 +7,7 @@ const commands = [
   new SlashCommandBuilder().setName('code').setDescription('send QR code'),
 ].map(command => command.toJSON());
 
-console.log(process.env.APP_ID);
+console.log(commands);
 const rest = new REST({version: '10'}).setToken(
   String(process.env.BOT_TOKEN)
 );

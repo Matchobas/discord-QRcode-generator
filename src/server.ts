@@ -18,7 +18,6 @@ client.on('ready', () => {
 
 client.on('messageCreate', msg => {
   if (msg.content === 'hey') {
-    let qrcode;
     axios
     .get(`https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=https://github.com/Matchobas`)
     .then(res => {
@@ -31,6 +30,26 @@ client.on('messageCreate', msg => {
       console.log(error);
     });
   }
+});
+
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
+
+	const { commandName } = interaction;
+
+	if (commandName === 'code') {
+    axios
+    .get(`https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=https://github.com/Matchobas`)
+    .then(res => {
+      console.log(`statusCode: ${res.status}`);
+      if(res.config.url) {
+        interaction.reply(res.config.url);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+	}
 });
 
 client.login(process.env.BOT_TOKEN);
