@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import { Client, Intents } from 'discord.js';
 import axios from 'axios';
-import { config } from 'dotenv';
 
 const intents = new Intents();
 intents.add(
