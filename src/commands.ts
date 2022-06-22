@@ -4,7 +4,12 @@ import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v10';
 
 const commands = [
-  new SlashCommandBuilder().setName('code').setDescription('send QR code'),
+  new SlashCommandBuilder().setName('code').setDescription('send QR code')
+  .addStringOption((option) => 
+    option.setName('input')
+      .setDescription('First user input')
+      .setRequired(true)
+  ),
 ].map(command => command.toJSON());
 
 console.log(commands);

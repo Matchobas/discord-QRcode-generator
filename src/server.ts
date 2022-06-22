@@ -37,6 +37,8 @@ client.on('interactionCreate', async interaction => {
 
 	const { commandName } = interaction;
 
+  console.log(interaction.options);
+
 	if (commandName === 'code') {
     axios
     .get(`https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=https://github.com/Matchobas`)
