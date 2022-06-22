@@ -37,11 +37,12 @@ client.on('interactionCreate', async interaction => {
 
 	const { commandName } = interaction;
 
-  console.log(interaction.options);
+  const url = interaction.options.getString('url');
+  const size = interaction.options.getNumber('size');
 
 	if (commandName === 'code') {
     axios
-    .get(`https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=https://github.com/Matchobas`)
+    .get(`https://chart.googleapis.com/chart?cht=qr&chs=${size}x${size}&chl=${url}`)
     .then(res => {
       console.log(`statusCode: ${res.status}`);
       if(res.config.url) {
