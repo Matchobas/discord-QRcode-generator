@@ -18,7 +18,13 @@ const commands = [
       .setName('url')
       .setDescription('URL to create QR code for')
       .setRequired(true)
-  ),
+  )
+  .addStringOption((option) => 
+    option
+      .setName('color')
+      .setDescription('Color of the QR code')
+      .setRequired(false)
+  )
 ].map(command => command.toJSON());
 
 console.log(commands);

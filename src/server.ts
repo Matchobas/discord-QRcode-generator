@@ -39,10 +39,11 @@ client.on('interactionCreate', async interaction => {
 
   const url = interaction.options.getString('url');
   const size = interaction.options.getNumber('size');
+  const color = interaction.options.getString('color') || '000000';
 
 	if (commandName === 'code') {
     axios
-    .get(`https://chart.googleapis.com/chart?cht=qr&chs=${size}x${size}&chl=${url}`)
+    .get(`https://chart.googleapis.com/chart?cht=qr&chs=${size}x${size}&chl=${url}&chco=${color}`)
     .then(res => {
       console.log(`statusCode: ${res.status}`);
       if(res.config.url) {

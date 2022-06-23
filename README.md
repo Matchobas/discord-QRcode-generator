@@ -1,4 +1,6 @@
 # Discord QR code generator
 
-A bot for Discord that get parameters and return a QR code with those
-This is being created for training and will be using nodeJS, discord and google API
+A bot for Discord that get parameters and return a QR code leading to the arguments sent.
+The purpose of this development is studying and will be using nodeJS, discord.js and google API.
+
+
